@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+   	 <meta charset="utf-8">
+   	 <title>Task List</title>
+   	 <link rel="stylesheet" href="style.css">
+     <link rel="shortcut icon" href="favi.png" type="image/x-icon">
+   	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+   	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <style>
+
+   body, html {
+      height: 100%;
+      margin: 0;
+   }
+
+  .bg {
+    background-image: url("https://images.prismic.io/smarttask%2F9d9ed8be-fe43-47ee-ade8-db2a126d70ac_floating+guy2.gif?auto=compress,format");
+    height: 100%;
+    background-position:relative;
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+
+  </style>
+
+  </head>
+   <body>
+     <center>
+       <font size="5px">
+   	<h3 class="todo"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Task List&nbsp;&nbsp;&nbsp;<i class="fa fa-tasks" aria-hidden="true"></i></h3></center>
+   	<div class="bg">
+<center>
+  <br />
+  <p align="right"><button type="button" class="btn" onclick="on()"><b>Attend to here!!</b></b></button></p></font>
+    <div id="overlay" onclick="off()">
+      <font color="white" size="5px">
+       <h1>Why do I need to Maintain a tasklist ?? &nbsp;&nbsp;&nbsp;<i class="fa fa-tasks" aria-hidden="true"></i></h1>
+<br />
+<br />
+<blockquote>
+  To be well organized in the workplace, you need to be using Task Lists. By using them, you will ensure that:<br />
+
+1. You remember to carry out all necessary tasks.<br />
+2. You tackle the most important jobs first, and don't waste time on trivial tasks.<br />
+3. You don't get stressed by a large number of unimportant jobs.<br />
+4. Start by listing all of the tasks that you must carry out.<br /><br /><br />
+
+Mark the importance of the task next to it, with a priority from A (very important) to F (unimportant).<br /> Redraft the list into this order of importance. Then carry out the jobs at the top of the list first. These are the most important, most beneficial tasks to complete.
+
+<br />You can also use software-based approaches to manage your list.<br /> You can often access these from anywhere, and they can often be synced with your Smartphone or PDA.<br /><br />
+</blockquote>
+<button type="button" class="btn" onclick="off()" ><b>Interesting!! Take me back to my TaskList</b></button>
+</font>
+<font size="5px">
+    </div>
+      <div class="container">
+      <p><input type="text" class="txtb"  id="tasklist" placeholder="Give me the task list">  <font size="2px"><p>Click Enter to save your task. Donot Close or refresh this page until you want to create a new TaskList</p></font><button class="btn" onclick="reset()"><b>Reset Value</b></button><input type="button" value="Clear All"  class="btn" onClick="refresh()"></p>
+
+        <script>
+          function refresh() {
+            location.reload();
+          }
+          function reset(){
+            var val = document.getElementById('tasklist');
+            val.value="";
+          }
+        </script>
+      	<div class="notcompleted">
+      		<h3><u>Yet to go on!</u></h3>
+
+
+      	</div>
+<br />
+      	<div class="comp">
+      		<h3><u>Done wonders!</u></h3>
+      	 </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+        	$(".txtb").on("keyup",function(e){
+        		//13 means enter button
+        		if(e.keyCode == 13 && $(".txt").val() != "")
+        		{
+        			var task= $("<div class='task'></div>").text($(".txtb").val());
+        			var del = $("<i class='fas fa-trash-alt'></i>").click(function(){
+        				var p= $(this).parent();
+        				p.fadeOut(function(){
+        					p.remove();
+        				});
+        			});
+
+
+        			var check = $("<i class='fas fa-check'></i>").click(function(){
+        				var p= $(this).parent();
+        				p.fadeOut(function(){
+        					$(".comp").append(p);
+        					p.fadeIn();
+        				});
+        				$(this).remove();
+        			});
+
+
+        			task.append(del,check);
+        			$(".notcompleted").append(task);
+        			   // to clear the input
+        			$(".textb").val("");
+        		}
+
+
+        	});
+
+        </script>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<p><b>&copy;Copyright<a href="index.html">www.tasklist.com</a></b></p></font>
+</font>
+</center>
+    </body>
+    <script src="script.js"></script>
+ </html>
